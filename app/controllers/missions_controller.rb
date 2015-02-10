@@ -1,4 +1,5 @@
 class MissionsController < ApplicationController
+  before_action :set_mission, only: [:show, :edit, :update, :destroy]
   def index
     @missions = Mission.all
   end
@@ -14,21 +15,17 @@ class MissionsController < ApplicationController
   end
 
   def show
-    @mission = Mission.find(params[:id])
   end
 
   def edit
-    @mission = Mission.find(params[:id])
   end
 
   def update
-    @mission = Mission.find(params[:id])
     @mission.update(mission_params)
     redirect_to mission_path(@mission)
   end
 
   def destroy
-    @mission = Mission.find(params[:id])
     @mission.destroy
     redirect_to missions_path
   end
@@ -40,4 +37,8 @@ class MissionsController < ApplicationController
     # Never trust user data!
     params.require(:mission).permit(:name, :description, :done)
   end
+
+  def set_mission
+      @mission = Mission.find(params[:id])
+    end
 end

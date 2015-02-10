@@ -1,4 +1,6 @@
 <h1><%= @mission.name %></h1>
-<h3>Description: <%= @mission.description %></h3>
-<h3>Status: <%= @mission.done ? "done" : "to do" %></h3>
-<p><%= link_to("Edit",edit_path(@mission)) %> <%= link_to("Delete",mission_path(mission),method: :delete, data: { confirm: "Are you sure?" }) %></p>
+<h3>Description : <%= @mission.description %></h3>
+<h3>Status : <%= @mission.done ? "done" : "to do" %></h3>
+<h4>Date of creation : <%= @mission.created_at %></h4>
+<h4>Last update : <%= @mission.updated_at %></h4>
+<p><%= link_to("edit",edit_path(@mission)) %> <%= link_to("delete",mission_path(@mission),method: :delete, data: { confirm: "Are you sure?" }) %> <%= link_to("home", missions_path) %></p>
