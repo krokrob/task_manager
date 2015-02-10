@@ -1,2 +1,4 @@
-<h1>Missions#show</h1>
-<p>Find me in app/views/missions/show.html.erb</p>
+<h1><%= @mission.name %></h1>
+<h3>Description: <%= @mission.description %></h3>
+<h3>Status: <%= @mission.done ? "done" : "to do" %></h3>
+<p><%= link_to("Edit",edit_path(@mission)) %> <%= link_to("Delete",mission_path(mission),method: :delete, data: { confirm: "Are you sure?" }) %></p>

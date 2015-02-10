@@ -1,14 +1,14 @@
 Rails.application.routes.draw do
-  # READ
-  get "/missions", to: "missions#index"
-  get "/missions/:id", to: "missions#show"
-
   # CREATE
   get "/missions/new", to: "missions#new"
   post "/missions", to: "missions#create"
 
+  # READ
+  get "/missions", to: "missions#index"
+  get "/missions/:id", to: "missions#show", as: "mission"
+
   # UPDATE
-  get "/missions/:id/edit", to: "missions#edit"
+  get "/missions/:id/edit", to: "missions#edit", as: "edit"
   patch "/missions/:id", to: "missions#update"
 
   # DELETE

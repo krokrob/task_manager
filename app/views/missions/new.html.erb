@@ -1,2 +1,12 @@
-<h1>Missions#new</h1>
-<p>Find me in app/views/missions/new.html.erb</p>
+<h1>New task</h1>
+<form action="/missions" method="post">
+  <div>
+    <label for="name">Name: </label>
+    <input type="text" name="mission[name]" id="name">
+  </div>
+  <div>
+  <label for="description">Description: </label>
+    <input type="text" name="mission[description]" id="description">
+  </div>
+  <input type="submit" value="Add">
+</form>

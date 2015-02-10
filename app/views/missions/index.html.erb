@@ -1,2 +1,10 @@
-<h1>Missions#index</h1>
-<p>Find me in app/views/missions/index.html.erb</p>
+<h1>To do list</h1>
+<ul>
+  <% @missions.each do |mission| %>
+    <li>
+      <h3><%= link_to(mission.name, mission_path(mission)) %>  (<%= mission.done ? "done" : "to do" %>) </h3>
+      <p><%= link_to("Edit",edit_path(mission)) %> <%= link_to("Delete",mission_path(mission),method: :delete, data: { confirm: "Are you sure?" }) %></p>
+    </li>
+  <% end %>
+</ul>
+<p><%= link_to("New task", missions_new_path) %></p>
